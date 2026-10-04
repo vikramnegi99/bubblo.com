@@ -1,0 +1,17 @@
+{
+  "name": "bubblo-fullstack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BUBBLO — full-stack e-commerce (Express + SQLite backend, React + Vite storefront & admin). No OTP; COD orders are confirmed manually by phone.",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "migrate": "npm --prefix backend run migrate",
+    "seed": "npm --prefix backend run seed",
+    "reset": "npm --prefix backend run reset",
+    "create-admin": "npm --prefix backend run create-admin",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "test:api": "node backend/scripts/smoke-test.js"
+  }
+}
