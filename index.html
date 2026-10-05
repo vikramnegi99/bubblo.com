@@ -98,6 +98,7 @@ h1,h2,h3,h4{font-family:var(--font-d);font-weight:700;line-height:1.05;margin:0;
 .header .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%}
 .brand{font-family:var(--font-d);font-weight:800;font-size:1.42rem;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
 .brand .bdot{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fff,var(--pink) 55%,var(--magenta));box-shadow:0 0 0 3px var(--pink-soft)}
+.brand-logo{height:42px;width:42px;display:block;object-fit:contain}
 .nav{display:none;gap:26px;font-weight:600;font-size:.95rem}
 @media (min-width:900px){.nav{display:flex}}
 .nav a:hover{color:var(--accent)}
@@ -133,22 +134,17 @@ h1,h2,h3,h4{font-family:var(--font-d);font-weight:700;line-height:1.05;margin:0;
 @media (prefers-reduced-motion:reduce){.bub{animation:none;opacity:.45}}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
 
-/* campaign */
-.campaign{border-radius:var(--r-xl);padding:clamp(28px,6vw,56px);background:linear-gradient(135deg,#2a0b1f,#6b1449 60%,#a3186b);color:#fff;position:relative;overflow:hidden}
+/* campaign (compact premium promo card) */
+.campaign{border-radius:var(--r-lg);padding:clamp(18px,4.2vw,30px) clamp(20px,4.4vw,42px);color:#fff;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow-lg);background-color:#3a0d2a;background-image:linear-gradient(100deg,rgba(26,6,18,.96) 0%,rgba(74,13,50,.9) 44%,rgba(122,26,82,.5) 100%),url("https://res.cloudinary.com/acqrwkcn/image/upload/f_auto,q_auto,w_1200/file_00000000d0b482088b9e8e1bb617d550.jpg");background-size:cover;background-position:center right;background-repeat:no-repeat}
+.campaign .bubbles{opacity:.45}
 .campaign .eyebrow{color:#ffc2dd}.campaign .eyebrow::before{background:#ffc2dd}
-.campaign h2{color:#fff}
-.campaign .lead{color:#f6d9e8}
-.offers{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:28px}
-.offer{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--r-md);padding:18px;backdrop-filter:blur(4px)}
-.offer .n{font-family:var(--font-d);font-weight:700;font-size:1.02rem;color:#fff}
-.offer .pr{display:flex;align-items:baseline;gap:10px;margin:8px 0 2px}
-.offer .now{font-family:var(--font-d);font-weight:800;font-size:1.7rem;color:#fff}
-.offer .was{color:#e7bfd4;text-decoration:line-through;font-size:.95rem}
-.offer .off{background:#fff;color:var(--magenta);font-weight:800;font-size:.78rem;padding:4px 10px;border-radius:100px}
-.timer{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
-.timer .cell{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:8px 12px;text-align:center;min-width:64px}
-.timer .cell b{display:block;font-family:var(--font-d);font-size:1.4rem;line-height:1}
-.timer .cell small{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#f0c7dd}
+.campaign .camp-h{color:#fff;font-size:clamp(1.35rem,4.4vw,1.95rem);line-height:1.05;text-transform:uppercase;letter-spacing:-.005em}
+.campaign .camp-sub{color:#f3d7e6;margin:6px 0 0;font-size:clamp(.9rem,2.4vw,1rem);max-width:420px}
+.timer{display:flex;gap:8px;margin-top:14px;flex-wrap:nowrap}
+.timer .cell{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:7px 12px;text-align:center;min-width:56px}
+.timer .cell b{display:block;font-family:var(--font-d);font-size:1.28rem;line-height:1}
+.timer .cell small{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#f0c7dd}
+.campaign .camp-cta{margin-top:16px}
 
 /* generic cards / grids */
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
@@ -408,7 +404,7 @@ table.orders select{padding:6px 8px;border-radius:8px;border:1px solid var(--lin
 .wa-float svg{width:30px;height:30px}
 @media (max-width:899px){.wa-float{bottom:calc(86px + env(safe-area-inset-bottom))}}
 /* ---- campaign ended ---- */
-.campaign.ended .eyebrow,.campaign.ended .was,.campaign.ended .off{display:none}
+.campaign.ended .eyebrow,.campaign.ended .timer{display:none}
 /* ---- gift burst ---- */
 .gift-stage.shake .gift-box{animation:gshake .45s ease}
 @keyframes gshake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px) rotate(-2deg)}40%{transform:translateX(6px) rotate(2deg)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
@@ -428,7 +424,7 @@ table.orders select{padding:6px 8px;border-radius:8px;border:1px solid var(--lin
 <!-- ================= HEADER ================= -->
 <header class="header" id="header">
   <div class="wrap">
-    <a class="brand" href="#/" aria-label="BUBBLO home"><span class="bdot" aria-hidden="true"></span>BUBBLO</a>
+    <a class="brand" href="#/" aria-label="BUBBLO home"><img class="brand-logo" src="https://res.cloudinary.com/acqrwkcn/image/upload/f_auto,q_auto,w_160/file_00000000cabc8211b5b2897d5d1fd80b.png" alt="BUBBLO" width="42" height="42" /></a>
     <nav class="nav" aria-label="Primary">
       <a href="#shop">Shop</a>
       <a href="#why">Why Bubblo</a>
@@ -498,11 +494,10 @@ table.orders select{padding:6px 8px;border-radius:8px;border:1px solid var(--lin
     <div class="campaign" id="campaign">
       <div class="bubbles" id="campBubbles" aria-hidden="true"></div>
       <span class="eyebrow" id="campEyebrow">BUBBLE MEGA DAYS</span>
-      <h2 class="h-2" id="campTitle">Limited-Time Bubble Drop</h2>
-      <p class="lead" id="campSub" style="max-width:520px">Special launch prices for a limited time.</p>
-      <div class="offers" id="campOffers"></div>
+      <h2 class="camp-h" id="campTitle">LIMITED TIME BUBBLE DROP</h2>
+      <p class="camp-sub" id="campSub">Special launch prices for a limited time.</p>
       <div class="timer" id="campTimer" style="display:none"></div>
-      <div style="margin-top:24px"><a class="btn btn-light btn-lg" href="#shop">GRAB THE OFFER <span class="arrow" aria-hidden="true">→</span></a></div>
+      <div class="camp-cta"><a class="btn btn-light" href="#shop">SHOP NOW <span class="arrow" aria-hidden="true">→</span></a></div>
     </div>
   </div>
 
@@ -935,7 +930,7 @@ const STATUSES = ["New Order","Call Pending","Call Confirmed","Processing","Ship
 const TRACK_STAGES = ["Order Confirmed","Processing","Shipped","Out for Delivery","Delivered"];
 
 /* ---------- persisted state ---------- */
-const DEF_SETTINGS = { shipping:0, cod:true, campaign:{ name:"Limited-Time Bubble Drop", sub:"Special launch prices for a limited time.", start:"", end:"" }, contact:{ whatsapp:"919528097342", email:"mrvickybusines@gmail.com" } };
+const DEF_SETTINGS = { shipping:0, cod:true, campaign:{ name:"Limited Time Bubble Drop", sub:"Special launch prices for a limited time.", start:"", end:"" }, contact:{ whatsapp:"919528097342", email:"mrvickybusines@gmail.com" } };
 function load(k,fb){ try{ const v=JSON.parse(localStorage.getItem(k)); return v==null?fb:v; }catch(e){ return fb; } }
 function save(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
 let settings = Object.assign({}, DEF_SETTINGS, load("bb2_settings",{}));
@@ -949,23 +944,31 @@ const bySlug = s => products.find(p=>p.slug===s);
 const off = p => p.mrp>p.price ? Math.round((1-p.price/p.mrp)*100) : 0;
 
 /* ---------- renderers ---------- */
+function campaignEndMs(c){
+  if(c.end){ const t=new Date(c.end).getTime(); return isNaN(t)?null:t; }
+  // No end configured: use a FIXED 24-hour default that does NOT reset on refresh.
+  let fixed=localStorage.getItem("bb2_camp_default_end");
+  if(!fixed){ fixed=new Date(Date.now()+24*3600*1000).toISOString(); try{ localStorage.setItem("bb2_camp_default_end",fixed); }catch(e){} }
+  const t=new Date(fixed).getTime(); return isNaN(t)?null:t;
+}
 function renderCampaign(){
   const c=settings.campaign||DEF_SETTINGS.campaign;
-  const camp=$("#campaign");
-  $("#campTitle").textContent=c.name||"Limited-Time Bubble Drop";
-  $("#campSub").textContent=c.sub||"";
+  const camp=$("#campaign"); if(!camp) return;
   const now=Date.now();
   const start=c.start?new Date(c.start).getTime():null;
-  const end=c.end?new Date(c.end).getTime():null;
+  const end=campaignEndMs(c);
   const active=(!start||now>=start)&&(!end||now<end);
   camp.classList.toggle("ended",!active);
-  $("#campOffers").innerHTML = visibleProducts().map(p=>`<div class="offer"><div class="n">${esc(p.name)}</div><div class="pr"><span class="now">${money(p.price)}</span>${off(p)?`<span class="was">${money(p.mrp)}</span>`:""}</div>${off(p)?`<span class="off">${off(p)}% OFF</span>`:""}</div>`).join("");
-  const t=$("#campTimer");
+  const titleEl=$("#campTitle"), subEl=$("#campSub");
+  if(titleEl) titleEl.textContent = active ? (c.name||"LIMITED TIME BUBBLE DROP") : "BUBBLE DROP";
+  if(subEl) subEl.textContent = active ? (c.sub||"Special launch prices for a limited time.") : "Fresh bubbles, ready to gift.";
+  const t=$("#campTimer"); if(!t) return;
   if(active && end){
     t.style.display="flex";
-    const tick=()=>{ const ms=end-Date.now(); if(ms<=0){ t.style.display="none"; clearInterval(window.__ct); return; }
-      const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,s=Math.floor(ms/1e3)%60;
-      t.innerHTML=`<div class="cell"><b>${String(d).padStart(2,"0")}</b><small>Days</small></div><div class="cell"><b>${String(h).padStart(2,"0")}</b><small>Hrs</small></div><div class="cell"><b>${String(m).padStart(2,"0")}</b><small>Min</small></div><div class="cell"><b>${String(s).padStart(2,"0")}</b><small>Sec</small></div>`; };
+    const tick=()=>{ let ms=end-Date.now(); if(ms<0) ms=0;
+      const h=Math.floor(ms/36e5), m=Math.floor(ms/6e4)%60, s=Math.floor(ms/1e3)%60;
+      t.innerHTML=`<div class="cell"><b>${String(h).padStart(2,"0")}</b><small>Hours</small></div><div class="cell"><b>${String(m).padStart(2,"0")}</b><small>Minutes</small></div><div class="cell"><b>${String(s).padStart(2,"0")}</b><small>Seconds</small></div>`;
+      if(ms<=0){ clearInterval(window.__ct); camp.classList.add("ended"); t.style.display="none"; if(titleEl) titleEl.textContent="BUBBLE DROP"; if(subEl) subEl.textContent="Fresh bubbles, ready to gift."; } };
     tick(); clearInterval(window.__ct); window.__ct=setInterval(tick,1000);
   } else { t.style.display="none"; }
 }

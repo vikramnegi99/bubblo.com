@@ -15,8 +15,7 @@ export default function Header() {
     <header className="header">
       <div className="container header__inner">
         <Link to="/" className="logo" onClick={close} aria-label="BUBBLO home">
-          BUBBLO
-          <span className="logo__tag" style={{ display: 'block' }}>{settings.tagline}</span>
+          <img className="logo__img" src="https://res.cloudinary.com/acqrwkcn/image/upload/f_auto,q_auto,w_160/file_00000000cabc8211b5b2897d5d1fd80b.png" alt="BUBBLO" width="42" height="42" />
         </Link>
 
         <nav className="header__nav" aria-label="Primary">
