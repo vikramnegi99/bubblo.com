@@ -98,7 +98,7 @@ h1,h2,h3,h4{font-family:var(--font-d);font-weight:700;line-height:1.05;margin:0;
 .header .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%}
 .brand{font-family:var(--font-d);font-weight:800;font-size:1.42rem;letter-spacing:-.03em;display:flex;align-items:center;gap:8px}
 .brand .bdot{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 32% 30%,#fff,var(--pink) 55%,var(--magenta));box-shadow:0 0 0 3px var(--pink-soft)}
-.brand-logo{height:42px;width:42px;display:block;object-fit:contain}
+.brand-logo{height:44px;width:44px;display:block;object-fit:contain}
 .nav{display:none;gap:26px;font-weight:600;font-size:.95rem}
 @media (min-width:900px){.nav{display:flex}}
 .nav a:hover{color:var(--accent)}
@@ -119,32 +119,37 @@ h1,h2,h3,h4{font-family:var(--font-d);font-weight:700;line-height:1.05;margin:0;
 .menu-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 
 /* hero */
-.hero{padding-top:clamp(20px,5vw,48px);padding-bottom:clamp(28px,6vw,56px);position:relative}
-.hero-grid{display:grid;gap:clamp(26px,5vw,52px);align-items:center}
-@media (min-width:920px){.hero-grid{grid-template-columns:1.05fr .95fr}}
-.hero-copy{max-width:620px}
+.hero{padding-top:clamp(22px,5vw,52px);padding-bottom:clamp(30px,6vw,60px);position:relative}
+.hero-copy{max-width:760px}
 .hero h1 em{font-style:normal;color:var(--accent)}
-.hero-visual{position:relative;display:grid;place-items:center}
-.hero-media{position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--r-xl);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);background:var(--lav)}
-@media (min-width:920px){.hero-media{aspect-ratio:1/1}}
-.hero-media img{width:100%;height:100%;object-fit:cover}
 .bubbles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .bub{position:absolute;border-radius:50%;background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.95),rgba(255,255,255,.16) 55%,rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.7);box-shadow:inset 0 0 8px rgba(255,255,255,.6);animation:float linear infinite}
 @keyframes float{0%{transform:translateY(20px) scale(.9);opacity:0}12%{opacity:.9}88%{opacity:.8}100%{transform:translateY(-150px) scale(1.1);opacity:0}}
 @media (prefers-reduced-motion:reduce){.bub{animation:none;opacity:.45}}
 .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
 
-/* campaign (compact premium promo card) */
-.campaign{border-radius:var(--r-lg);padding:clamp(18px,4.2vw,30px) clamp(20px,4.4vw,42px);color:#fff;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow-lg);background-color:#3a0d2a;background-image:linear-gradient(100deg,rgba(26,6,18,.96) 0%,rgba(74,13,50,.9) 44%,rgba(122,26,82,.5) 100%),url("https://res.cloudinary.com/acqrwkcn/image/upload/f_auto,q_auto,w_1200/file_00000000d0b482088b9e8e1bb617d550.jpg");background-size:cover;background-position:center right;background-repeat:no-repeat}
-.campaign .bubbles{opacity:.45}
-.campaign .eyebrow{color:#ffc2dd}.campaign .eyebrow::before{background:#ffc2dd}
-.campaign .camp-h{color:#fff;font-size:clamp(1.35rem,4.4vw,1.95rem);line-height:1.05;text-transform:uppercase;letter-spacing:-.005em}
-.campaign .camp-sub{color:#f3d7e6;margin:6px 0 0;font-size:clamp(.9rem,2.4vw,1rem);max-width:420px}
-.timer{display:flex;gap:8px;margin-top:14px;flex-wrap:nowrap}
-.timer .cell{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:7px 12px;text-align:center;min-width:56px}
-.timer .cell b{display:block;font-family:var(--font-d);font-size:1.28rem;line-height:1}
-.timer .cell small{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:#f0c7dd}
-.campaign .camp-cta{margin-top:16px}
+/* slim campaign countdown strip */
+.camp-strip{position:sticky;top:var(--header-h);z-index:55;background:linear-gradient(90deg,#3a0d2a,#6b1449 58%,#a3186b);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+.camp-strip__in{display:flex;align-items:center;gap:10px;height:42px;font-size:.82rem;white-space:nowrap;overflow:hidden}
+.cs-live{width:8px;height:8px;border-radius:50%;background:#ff8fb4;flex:none;animation:cspulse 2.2s infinite}
+@keyframes cspulse{0%{box-shadow:0 0 0 0 rgba(255,143,180,.55)}70%{box-shadow:0 0 0 8px rgba(255,143,180,0)}100%{box-shadow:0 0 0 0 rgba(255,143,180,0)}}
+.cs-label{font-weight:800;letter-spacing:.09em;text-transform:uppercase;font-size:.7rem;color:#ffc2dd;flex:none}
+.cs-text{color:#f3d7e6;overflow:hidden;text-overflow:ellipsis}
+.cs-timer{font-family:var(--font-d);font-weight:700;letter-spacing:.02em;flex:none}
+.cs-cta{margin-left:auto;font-weight:700;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:6px 13px;border-radius:100px;font-size:.76rem;flex:none;transition:background .2s}
+.cs-cta:hover{background:rgba(255,255,255,.26)}
+@media (max-width:620px){.cs-text{display:none}}
+@media (prefers-reduced-motion:reduce){.cs-live{animation:none}}
+
+/* variant selector */
+.variants{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 4px}
+.vopt{padding:9px 18px;border-radius:100px;border:1.5px solid var(--line-2);background:var(--surface);font-weight:700;font-size:.9rem;color:var(--ink);transition:border-color .2s,box-shadow .2s,color .2s}
+.vopt:hover{border-color:var(--accent)}
+.vopt.active{border-color:var(--accent);color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.pcard .vhint{font-size:.8rem;color:var(--ink-3);font-weight:600;letter-spacing:.02em;margin:-2px 0 0}
+img.img-fallback{opacity:0}
+.menu-trust{display:grid;gap:11px;margin-top:20px;font-size:.92rem;font-weight:600;color:var(--ink-2)}
+.menu-trust span{display:flex;align-items:center;gap:9px}
 
 /* generic cards / grids */
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
@@ -396,8 +401,6 @@ table.orders select{padding:6px 8px;border-radius:8px;border:1px solid var(--lin
 /* ---- compact hero ---- */
 .hero-compact{padding-top:clamp(14px,3vw,28px);padding-bottom:clamp(18px,4vw,34px)}
 .hero-compact .h-hero{font-size:clamp(2rem,7vw,3.4rem)}
-.hero-compact .hero-media{aspect-ratio:16/12}
-@media (min-width:920px){.hero-compact .hero-media{aspect-ratio:5/4}}
 /* ---- whatsapp float ---- */
 .wa-float{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:65;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.42);transition:transform .2s}
 .wa-float:hover{transform:scale(1.06)}
@@ -424,7 +427,7 @@ table.orders select{padding:6px 8px;border-radius:8px;border:1px solid var(--lin
 <!-- ================= HEADER ================= -->
 <header class="header" id="header">
   <div class="wrap">
-    <a class="brand" href="#/" aria-label="BUBBLO home"><img class="brand-logo" src="https://res.cloudinary.com/acqrwkcn/image/upload/f_auto,q_auto,w_160/file_00000000cabc8211b5b2897d5d1fd80b.png" alt="BUBBLO" width="42" height="42" /></a>
+    <a class="brand" href="#/" aria-label="BUBBLO home"><img class="brand-logo" src="https://res.cloudinary.com/acqrwkcn/image/upload/f_auto,q_auto,w_160/file_00000000cabc8211b5b2897d5d1fd80b.png" alt="BUBBLO" width="44" height="44" /></a>
     <nav class="nav" aria-label="Primary">
       <a href="#shop">Shop</a>
       <a href="#why">Why Bubblo</a>
@@ -441,6 +444,17 @@ table.orders select{padding:6px 8px;border-radius:8px;border:1px solid var(--lin
   </div>
 </header>
 
+<!-- CAMPAIGN COUNTDOWN STRIP -->
+<div class="camp-strip" id="campaign" aria-label="Limited time offer">
+  <div class="wrap camp-strip__in">
+    <span class="cs-live" aria-hidden="true"></span>
+    <span class="cs-label">Bubble Mega Days</span>
+    <span class="cs-text" id="campText">Limited Time Bubble Drop</span>
+    <span class="cs-timer" id="campTimer">Ends in --:--:--</span>
+    <a class="cs-cta" href="#shop">SHOP NOW <span aria-hidden="true">→</span></a>
+  </div>
+</div>
+
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="menu-panel">
     <div class="menu-head">
@@ -448,13 +462,18 @@ table.orders select{padding:6px 8px;border-radius:8px;border:1px solid var(--lin
       <button class="icon-btn" id="menuClose" aria-label="Close menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     </div>
     <a href="#shop" data-close-menu>Shop <span aria-hidden="true">→</span></a>
+    <a href="#gifting" data-close-menu>Explore <span aria-hidden="true">→</span></a>
     <a href="#why" data-close-menu>Why Bubblo <span aria-hidden="true">→</span></a>
-    <a href="#gifting" data-close-menu>Gifting <span aria-hidden="true">→</span></a>
     <a href="#faq" data-close-menu>FAQ <span aria-hidden="true">→</span></a>
     <a href="#/track" data-close-menu>Track Order <span aria-hidden="true">→</span></a>
     <a href="#/contact" data-close-menu>Contact <span aria-hidden="true">→</span></a>
     <a href="#/policies" data-close-menu>Policies <span aria-hidden="true">→</span></a>
     <a href="#/admin" data-close-menu>Admin (demo) <span aria-hidden="true">→</span></a>
+    <div class="menu-trust">
+      <span><span class="tick" aria-hidden="true">✓</span>Cash On Delivery</span>
+      <span><span class="tick" aria-hidden="true">✓</span>Order Confirmation</span>
+      <span><span class="tick" aria-hidden="true">✓</span>Secure Checkout</span>
+    </div>
   </div>
 </div>
 
@@ -465,41 +484,16 @@ table.orders select{padding:6px 8px;border-radius:8px;border:1px solid var(--lin
 
   <!-- COMPACT HERO -->
   <div class="hero hero-compact wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow">Bubble Gifts &amp; Fun</span>
-        <h1 class="h-hero">Make Moments<br><em>Magical.</em></h1>
-        <p class="lead" style="margin-top:12px;max-width:440px">Bubbles, lights and unforgettable moments.</p>
-        <div class="hero-cta">
-          <a class="btn btn-lg" href="#shop">SHOP THE BUBBLE DROP <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost btn-lg" href="#gifting">EXPLORE</a>
-        </div>
-        <div class="trust-line">
-          <span><span class="tick" aria-hidden="true">✓</span>Cash On Delivery</span>
-          <span><span class="tick" aria-hidden="true">✓</span>Order Confirmation</span>
-          <span><span class="tick" aria-hidden="true">✓</span>Secure Checkout</span>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-media">
-          <div class="bubbles" id="heroBubbles" aria-hidden="true"></div>
-          <img id="heroImg" src="https://res.cloudinary.com/acqrwkcn/image/upload/f_auto,q_auto,w_1000/file_000000000888821194c4ce42bfed7d24.jpg" alt="A glowing LED lotus flower bubble wand from BUBBLO" fetchpriority="high" />
-        </div>
+    <div class="hero-copy">
+      <span class="eyebrow">Bubble Gifts &amp; Fun</span>
+      <h1 class="h-hero">Make Moments<br><em>Magical.</em></h1>
+      <p class="lead" style="margin-top:14px;max-width:520px">Bubbles, lights and unforgettable moments.</p>
+      <div class="hero-cta">
+        <a class="btn btn-lg" href="#shop">SHOP THE BUBBLE DROP <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
 
-  <!-- LIMITED-TIME OFFER -->
-  <div class="wrap" style="padding-top:6px">
-    <div class="campaign" id="campaign">
-      <div class="bubbles" id="campBubbles" aria-hidden="true"></div>
-      <span class="eyebrow" id="campEyebrow">BUBBLE MEGA DAYS</span>
-      <h2 class="camp-h" id="campTitle">LIMITED TIME BUBBLE DROP</h2>
-      <p class="camp-sub" id="campSub">Special launch prices for a limited time.</p>
-      <div class="timer" id="campTimer" style="display:none"></div>
-      <div class="camp-cta"><a class="btn btn-light" href="#shop">SHOP NOW <span class="arrow" aria-hidden="true">→</span></a></div>
-    </div>
-  </div>
 
   <!-- THREE PRODUCTS -->
   <div class="section wrap" id="shop">
@@ -882,7 +876,8 @@ const ICONS = {
   flower:_s('<circle cx="12" cy="6" r="3"/><circle cx="17.2" cy="9.8" r="3"/><circle cx="15.2" cy="15.8" r="3"/><circle cx="8.8" cy="15.8" r="3"/><circle cx="6.8" cy="9.8" r="3"/><circle cx="12" cy="12" r="3.4" fill="currentColor" stroke="none"/>'),
   gun:_s('<path d="M3 8h13v6H8l-2 4H3z"/><circle cx="17" cy="11" r="4"/>'),
   butterfly:_s('<path d="M12 6v12"/><path d="M12 9c-1-3-5-4-6.5-2.5S6 12 12 12M12 9c1-3 5-4 6.5-2.5S18 12 12 12M12 14c-1 3-5 3.5-6 2s.5-4 6-4M12 14c1 3 5 3.5 6 2s-.5-4-6-4"/>'),
-  tag:_s('<path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.3"/>')
+  tag:_s('<path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.3"/>'),
+  cod:_s('<rect x="2" y="6.5" width="20" height="11" rx="2.2"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/>')
 };
 const icon = n => ICONS[n]||"";
 function renderIcons(){ $$("[data-ic]").forEach(el=>{ const n=el.getAttribute("data-ic"); if(ICONS[n]) el.innerHTML=ICONS[n]; }); }
@@ -894,6 +889,10 @@ const BASE_PRODUCTS = [
     price:999, mrp:1499, visible:true, icon:"flower",
     hero:"file_000000000888821194c4ce42bfed7d24",
     gallery:["file_0000000017308208a5855b5ee68fdfad","file_0000000055908211becd645686892190","file_000000000888821194c4ce42bfed7d24"],
+    variants:[
+      {id:"pink", name:"Pink", price:999, mrp:1499, hero:"file_000000000888821194c4ce42bfed7d24", gallery:["file_0000000017308208a5855b5ee68fdfad","file_0000000055908211becd645686892190","file_000000000888821194c4ce42bfed7d24"]},
+      {id:"blue", name:"Blue", price:899, mrp:1499, hero:"file_00000000ffe08208a628ffefbeda6715", gallery:["file_00000000ffe08208a628ffefbeda6715","file_000000005b508208941d7613da3e06a1"]}
+    ],
     short:"Glow, bubbles and a little everyday magic.",
     bestFor:"Glow + gifting + aesthetic moments",
     benefits:[["Glowing Flower Design","A lotus-shaped head that lights up in colour.","flower"],["Automatic Bubble Fun","No blowing — switch on and the bubbles flow.","bubble"],["Colorful Light Effect","A soft multi-colour glow for day or evening.","spark"],["Gift-Ready Feel","Looks beautiful in the box and in the hand.","gift"],["Indoor + Outdoor Fun","Works for a room, a terrace or a party.","sun"]],
@@ -942,6 +941,16 @@ let current = null;                   // current product slug on PDP
 const visibleProducts = () => products.filter(p=>p.visible);
 const bySlug = s => products.find(p=>p.slug===s);
 const off = p => p.mrp>p.price ? Math.round((1-p.price/p.mrp)*100) : 0;
+let selVar = load("bb2_variants", {});   // {slug: variantId}
+function hasVariants(p){ return !!(p.variants && p.variants.length); }
+function variantOf(p){ if(!hasVariants(p)) return null; return p.variants.find(v=>v.id===selVar[p.slug]) || p.variants[0]; }
+function selId(p){ const v=variantOf(p); return v?v.id:""; }
+function pPrice(p){ const v=variantOf(p); return v?v.price:p.price; }
+function pMrp(p){ const v=variantOf(p); return v?v.mrp:p.mrp; }
+function pHero(p){ const v=variantOf(p); return v?v.hero:p.hero; }
+function pGallery(p){ const v=variantOf(p); const g=(v?v.gallery:p.gallery); return (g&&g.length)?g:[pHero(p)]; }
+function pOff(p){ const pr=pPrice(p), mr=pMrp(p); return mr>pr?Math.round((1-pr/mr)*100):0; }
+function ensureVariants(){ products = products.map(p=>{ const b=BASE_PRODUCTS.find(x=>x.slug===p.slug); if(b&&b.variants&&!(p.variants&&p.variants.length)) p.variants=b.variants; return p; }); }
 
 /* ---------- renderers ---------- */
 function campaignEndMs(c){
@@ -953,36 +962,36 @@ function campaignEndMs(c){
 }
 function renderCampaign(){
   const c=settings.campaign||DEF_SETTINGS.campaign;
-  const camp=$("#campaign"); if(!camp) return;
+  const strip=$("#campaign"); if(!strip) return;
   const now=Date.now();
   const start=c.start?new Date(c.start).getTime():null;
   const end=campaignEndMs(c);
   const active=(!start||now>=start)&&(!end||now<end);
-  camp.classList.toggle("ended",!active);
-  const titleEl=$("#campTitle"), subEl=$("#campSub");
-  if(titleEl) titleEl.textContent = active ? (c.name||"LIMITED TIME BUBBLE DROP") : "BUBBLE DROP";
-  if(subEl) subEl.textContent = active ? (c.sub||"Special launch prices for a limited time.") : "Fresh bubbles, ready to gift.";
-  const t=$("#campTimer"); if(!t) return;
-  if(active && end){
-    t.style.display="flex";
-    const tick=()=>{ let ms=end-Date.now(); if(ms<0) ms=0;
-      const h=Math.floor(ms/36e5), m=Math.floor(ms/6e4)%60, s=Math.floor(ms/1e3)%60;
-      t.innerHTML=`<div class="cell"><b>${String(h).padStart(2,"0")}</b><small>Hours</small></div><div class="cell"><b>${String(m).padStart(2,"0")}</b><small>Minutes</small></div><div class="cell"><b>${String(s).padStart(2,"0")}</b><small>Seconds</small></div>`;
-      if(ms<=0){ clearInterval(window.__ct); camp.classList.add("ended"); t.style.display="none"; if(titleEl) titleEl.textContent="BUBBLE DROP"; if(subEl) subEl.textContent="Fresh bubbles, ready to gift."; } };
-    tick(); clearInterval(window.__ct); window.__ct=setInterval(tick,1000);
-  } else { t.style.display="none"; }
+  const t=$("#campTimer");
+  const txt=$("#campText"); if(txt && c.name) txt.textContent=c.name;
+  if(!active || !end){ strip.style.display="none"; clearInterval(window.__ct); return; }
+  strip.style.display="";
+  const tick=()=>{ let ms=end-Date.now(); if(ms<0) ms=0;
+    const h=Math.floor(ms/36e5), m=Math.floor(ms/6e4)%60, s=Math.floor(ms/1e3)%60;
+    if(t) t.textContent="Ends in "+String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    if(ms<=0){ clearInterval(window.__ct); strip.style.display="none"; } };
+  tick(); clearInterval(window.__ct); window.__ct=setInterval(tick,1000);
 }
 const WHO=[["For Kids","Pure playtime chaos.","kid"],["For Couples","A tiny gift. A huge smile.","heart"],["For Friends","Because boring gifts are overrated.","users"],["For Family","Make the whole room smile.","family"],["For Parties","More bubbles. More memories.","cake"],["For Gift Lovers","For the ones who love giving.","gift"],["For Content Creators","Make your photos and videos pop.","camera"],["For Everyday Fun","No occasion needed.","spark"]];
 function renderWho(){ $("#whoGrid").innerHTML = WHO.map(([t,c,ic])=>`<div class="who"><div class="ic" aria-hidden="true">${icon(ic)}</div><b>${t}</b><p>${c}</p></div>`).join(""); }
 function productCard(p){
+  const isVar=hasVariants(p);
+  const hero=isVar?pHero(p):p.hero, pr=isVar?pPrice(p):p.price, mr=isVar?pMrp(p):p.mrp, o=isVar?pOff(p):off(p);
+  const vhint=isVar?`<div class="vhint">${p.variants.map(v=>esc(v.name)).join(" \u00b7 ")}</div>`:"";
   return `<article class="pcard">
     <a class="media" href="#/products/${p.slug}" aria-label="${esc(p.name)}">
-      <span class="tag">${esc(p.tag)}</span>${off(p)?`<span class="off">${off(p)}% OFF</span>`:""}
-      <img src="${cld(p.hero,800)}" srcset="${cldSet(p.hero)}" sizes="(max-width:760px) 90vw, 33vw" alt="${esc(p.name)}" loading="lazy" width="800" height="800">
+      <span class="tag">${esc(p.tag)}</span>${o?`<span class="off">${o}% OFF</span>`:""}
+      <img src="${cld(hero,800)}" srcset="${cldSet(hero)}" sizes="(max-width:760px) 90vw, 33vw" alt="${esc(p.name)}" loading="lazy" width="800" height="800" onerror="this.classList.add('img-fallback')">
     </a>
     <div class="body">
       <h3>${esc(p.name)}</h3>
-      <div class="pr"><span class="now">${money(p.price)}</span><span class="was">${money(p.mrp)}</span></div>
+      ${vhint}
+      <div class="pr"><span class="now">${money(pr)}</span><span class="was">${money(mr)}</span></div>
       <p class="muted" style="font-size:.9rem;margin:0">${esc(p.short)}</p>
       <div class="acts">
         <button class="btn" data-buy="${p.slug}">BUY NOW</button>
@@ -995,7 +1004,7 @@ function renderProducts(){ $("#productGrid").innerHTML = visibleProducts().map(p
 function renderCompare(){
   const g=$("#compareGrid"); if(!g) return;
   g.innerHTML = visibleProducts().map(p=>`<article class="pcard">
-    <a class="media" href="#/products/${p.slug}"><img src="${cld(p.hero,600)}" alt="${esc(p.name)}" loading="lazy"></a>
+    <a class="media" href="#/products/${p.slug}"><img src="${cld(pHero(p),600)}" alt="${esc(p.name)}" loading="lazy"></a>
     <div class="body"><h3 style="font-size:1.05rem">${esc(p.name)}</h3><p class="muted" style="font-size:.86rem;margin:0">Best for: <b style="color:var(--ink)">${esc(p.bestFor)}</b></p><a class="btn btn-ghost" style="margin-top:6px" href="#/products/${p.slug}">VIEW</a></div>
   </article>`).join("");
 }
@@ -1014,18 +1023,20 @@ function renderFaq(list){ $("#faqList").innerHTML = (list||HOME_FAQ).map(([q,a])
 function renderProduct(slug){
   const p=bySlug(slug); if(!p) return route();
   current=slug;
-  const g=p.gallery.length?p.gallery:[p.hero];
+  const g=pGallery(p);
+  const varSel = hasVariants(p) ? `<div class="variants" role="radiogroup" aria-label="Choose variant">${p.variants.map(v=>`<button class="vopt ${v.id===selId(p)?"active":""}" data-var="${p.slug}:${v.id}" role="radio" aria-checked="${v.id===selId(p)}">${esc(v.name)}</button>`).join("")}</div>` : "";
   $("#pdpTop").innerHTML=`
     <div class="gallery">
-      <div class="g-main" id="gMain"><img id="gMainImg" src="${cld(g[0],1000)}" alt="${esc(p.name)}" loading="lazy"></div>
+      <div class="g-main" id="gMain"><img id="gMainImg" src="${cld(g[0],1000)}" alt="${esc(p.name)}" loading="lazy" onerror="this.classList.add('img-fallback')"></div>
       <div class="g-thumbs" id="gThumbs">${g.map((pid,i)=>`<button class="g-thumb ${i===0?"active":""}" data-g="${i}"><img src="${cld(pid,300)}" alt="${esc(p.name)} view ${i+1}" loading="lazy"></button>`).join("")}</div>
     </div>
     <div>
       <span class="eyebrow">${esc(p.tag)}</span>
       <h1 class="h-2">${esc(p.name)}</h1>
+      ${varSel}
       <p class="lead" style="margin-top:10px">${esc(p.short)}</p>
-      <div class="price-row"><span class="price-now">${money(p.price)}</span><span class="price-was">${money(p.mrp)}</span>${off(p)?`<span class="price-off">${off(p)}% OFF</span>`:""}</div>
-      <p class="muted" style="font-size:.9rem">You save <b style="color:var(--ok)">${money(p.mrp-p.price)}</b> · Cash on Delivery available</p>
+      <div class="price-row"><span class="price-now">${money(pPrice(p))}</span><span class="price-was">${money(pMrp(p))}</span>${pOff(p)?`<span class="price-off">${pOff(p)}% OFF</span>`:""}</div>
+      <p class="muted" style="font-size:.9rem">You save <b style="color:var(--ok)">${money(pMrp(p)-pPrice(p))}</b> · Cash on Delivery available</p>
       <div style="display:flex;align-items:center;gap:14px;margin-top:20px;flex-wrap:wrap">
         <div class="qty" role="group" aria-label="Quantity"><button data-pq="-1" aria-label="Decrease">−</button><span id="pqty">1</span><button data-pq="1" aria-label="Increase">+</button></div>
         <span class="muted" style="font-size:.85rem">In stock</span>
@@ -1046,7 +1057,7 @@ function renderProduct(slug){
       </div>
       <div><div class="section-head" style="margin-bottom:20px"><span class="eyebrow">What's Included</span><h2 class="h-2" style="font-size:1.7rem">In the box</h2></div>
         <ul class="inside">${p.included.map(t=>`<li><span class="bx" aria-hidden="true">✓</span><span>${esc(t)}</span></li>`).join("")}</ul>
-        <img src="${cld(g[g.length-1],800)}" alt="${esc(p.name)} lifestyle" loading="lazy" style="width:100%;border-radius:var(--r-lg);margin-top:18px;border:1px solid var(--line)">
+        <img src="${cld(g[g.length-1],800)}" alt="${esc(p.name)} lifestyle" loading="lazy" onerror="this.classList.add('img-fallback')" style="width:100%;border-radius:var(--r-lg);margin-top:18px;border:1px solid var(--line)">
       </div>
     </div>
 
@@ -1066,7 +1077,7 @@ function renderProduct(slug){
       <div class="grid g3">${visibleProducts().filter(x=>x.slug!==p.slug).map(productCard).join("")}</div>
     </div>`;
   bindGallery(g); initReveal();
-  const bp=$("#barPrice"), bm=$("#barMrp"); if(bp) bp.textContent=money(p.price); if(bm) bm.textContent=money(p.mrp);
+  const bp=$("#barPrice"), bm=$("#barMrp"); if(bp) bp.textContent=money(pPrice(p)); if(bm) bm.textContent=money(pMrp(p));
   window.scrollTo({top:0,behavior:"auto"});
 }
 function bindGallery(g){
@@ -1078,15 +1089,17 @@ function bindGallery(g){
 /* ---------- quick view ---------- */
 function openQuick(slug){
   const p=bySlug(slug); if(!p) return;
-  const g=p.gallery.length?p.gallery:[p.hero];
+  const g=pGallery(p);
+  const varSel = hasVariants(p) ? `<div class="variants" role="radiogroup" aria-label="Choose variant">${p.variants.map(v=>`<button class="vopt ${v.id===selId(p)?"active":""}" data-var="${p.slug}:${v.id}" role="radio" aria-checked="${v.id===selId(p)}">${esc(v.name)}</button>`).join("")}</div>` : "";
   $("#qvBody").innerHTML=`
     <div><div class="g-main" style="cursor:default"><img id="qvImg" src="${cld(g[0],900)}" alt="${esc(p.name)}"></div>
       <div class="g-thumbs" style="margin-top:10px">${g.map((pid,i)=>`<button class="g-thumb ${i===0?"active":""}" data-qg="${i}"><img src="${cld(pid,200)}" alt="view ${i+1}"></button>`).join("")}</div></div>
     <div>
       <span class="eyebrow">${esc(p.tag)}</span>
       <h2 style="font-size:1.6rem">${esc(p.name)}</h2>
+      ${varSel}
       <p class="muted" style="font-size:.92rem;margin-top:8px">${esc(p.short)}</p>
-      <div class="price-row"><span class="price-now" style="font-size:1.8rem">${money(p.price)}</span><span class="price-was">${money(p.mrp)}</span>${off(p)?`<span class="price-off">${off(p)}% OFF</span>`:""}</div>
+      <div class="price-row"><span class="price-now" style="font-size:1.8rem">${money(pPrice(p))}</span><span class="price-was">${money(pMrp(p))}</span>${pOff(p)?`<span class="price-off">${pOff(p)}% OFF</span>`:""}</div>
       <div style="display:flex;align-items:center;gap:12px;margin:16px 0">
         <div class="qty"><button data-pq="-1">−</button><span id="qqty">1</span><button data-pq="1">+</button></div>
       </div>
@@ -1104,11 +1117,15 @@ function openQuick(slug){
 function currentQty(){ const m=$("#qv"); const open=m&&m.classList.contains("open"); const s=open?$("#qqty"):$("#pqty"); return s?(Number(s.textContent)||1):1; }
 function cartQty(slug){ const l=cart.find(x=>x.slug===slug); return l?l.qty:0; }
 function cartCount(){ return cart.reduce((a,x)=>a+x.qty,0); }
-function addToCart(slug,qty){ qty=qty||1; const l=cart.find(x=>x.slug===slug); if(l) l.qty=clamp(l.qty+qty,1,10); else cart.push({slug,qty:clamp(qty,1,10)}); save("bb2_cart",cart); updateCartUI(); }
-function setQty(slug,qty){ const l=cart.find(x=>x.slug===slug); if(!l) return; if(qty<=0) cart=cart.filter(x=>x.slug!==slug); else l.qty=clamp(qty,1,10); save("bb2_cart",cart); updateCartUI(); }
+function lineVariant(l){ const p=bySlug(l.slug); if(!p||!hasVariants(p)) return null; return p.variants.find(v=>v.id===l.variant)||p.variants[0]; }
+function linePrice(l){ const p=bySlug(l.slug); const v=lineVariant(l); return v?v.price:p.price; }
+function lineMrp(l){ const p=bySlug(l.slug); const v=lineVariant(l); return v?v.mrp:p.mrp; }
+function lineHero(l){ const p=bySlug(l.slug); const v=lineVariant(l); return v?v.hero:p.hero; }
+function addToCart(slug,qty){ qty=qty||1; const p=bySlug(slug); if(!p) return; const vid=selId(p); const l=cart.find(x=>x.slug===slug&&(x.variant||"")===vid); if(l) l.qty=clamp(l.qty+qty,1,10); else cart.push({slug,variant:vid,qty:clamp(qty,1,10)}); save("bb2_cart",cart); updateCartUI(); }
+function setQty(slug,variant,qty){ const l=cart.find(x=>x.slug===slug&&(x.variant||"")===(variant||"")); if(!l) return; if(qty<=0) cart=cart.filter(x=>!(x.slug===slug&&(x.variant||"")===(variant||""))); else l.qty=clamp(qty,1,10); save("bb2_cart",cart); updateCartUI(); }
 function cartTotals(){
   let sub=0,mrp=0;
-  cart.forEach(l=>{ const p=bySlug(l.slug); if(!p) return; sub+=p.price*l.qty; mrp+=p.mrp*l.qty; });
+  cart.forEach(l=>{ sub+=linePrice(l)*l.qty; mrp+=lineMrp(l)*l.qty; });
   const ship = sub>0?Number(settings.shipping||0):0;
   return {sub,mrp,disc:mrp-sub,ship,total:sub+ship};
 }
@@ -1116,11 +1133,11 @@ function updateCartUI(){
   const c=$("#cartCount"); if(c){ c.textContent=cartCount(); c.classList.toggle("show",cartCount()>0); }
   const body=$("#drawerBody"), foot=$("#drawerFoot"); if(!body) return;
   if(!cart.length){ body.innerHTML=`<div class="empty-state" style="border-style:solid"><p class="muted" style="margin:0">Your cart is empty.</p></div>`; foot.innerHTML=`<a class="btn btn-block" href="#shop" data-close-cart>SHOP THE BUBBLE DROP</a>`; return; }
-  body.innerHTML=cart.map(l=>{ const p=bySlug(l.slug); if(!p) return ""; return `<div class="line-item" style="margin-bottom:18px">
-    <div class="th"><img src="${cld(p.hero,200)}" alt="${esc(p.name)}"></div>
-    <div style="flex:1"><div class="li-name">${esc(p.name)}</div><div class="li-sub">${money(p.price)} each</div>
-      <div class="qty" style="margin-top:8px"><button data-cq="${p.slug}" data-d="-1" aria-label="Decrease">−</button><span>${l.qty}</span><button data-cq="${p.slug}" data-d="1" aria-label="Increase">+</button></div>
-    </div><div style="font-weight:800">${money(p.price*l.qty)}</div></div>`; }).join("");
+  body.innerHTML=cart.map(l=>{ const p=bySlug(l.slug); if(!p) return ""; const v=lineVariant(l); const vn=v?` · ${esc(v.name)}`:""; return `<div class="line-item" style="margin-bottom:18px">
+    <div class="th"><img src="${cld(lineHero(l),200)}" alt="${esc(p.name)}"></div>
+    <div style="flex:1"><div class="li-name">${esc(p.name)}</div><div class="li-sub">${vn?esc(v.name)+" · ":""}${money(linePrice(l))} each</div>
+      <div class="qty" style="margin-top:8px"><button data-cq="${p.slug}" data-v="${esc(l.variant||"")}" data-d="-1" aria-label="Decrease">−</button><span>${l.qty}</span><button data-cq="${p.slug}" data-v="${esc(l.variant||"")}" data-d="1" aria-label="Increase">+</button></div>
+    </div><div style="font-weight:800">${money(linePrice(l)*l.qty)}</div></div>`; }).join("");
   const t=cartTotals();
   foot.innerHTML=`<div class="summary-row"><span>Subtotal</span><span>${money(t.sub)}</span></div>${t.disc?`<div class="summary-row"><span>Discount</span><span class="save">− ${money(t.disc)}</span></div>`:""}<div class="summary-row"><span>Shipping</span><span>${t.ship?money(t.ship):"₹0"}</span></div><div class="summary-row total"><span>Total</span><span>${money(t.total)}</span></div>
     <a class="btn btn-block" href="#/checkout" data-close-cart style="margin-top:14px">CHECKOUT — ${money(t.total)} <span class="arrow" aria-hidden="true">→</span></a>`;
@@ -1140,7 +1157,7 @@ function setFieldErr(sel,bad){ const el=$(sel); el.classList.toggle("invalid",ba
 function setPhoneErr(msg){ const w=$("#phoneWrap"), e=$("#phoneErr"); if(!msg){ w.classList.remove("invalid"); e.style.display="none"; return; } w.classList.add("invalid"); e.textContent=msg; e.style.display="block"; }
 function renderCheckoutSummary(){
   const t=cartTotals();
-  $("#summaryItems").innerHTML = cart.length? cart.map(l=>{ const p=bySlug(l.slug); return `<div class="os-item"><div class="th"><img src="${cld(p.hero,200)}" alt="${esc(p.name)}"></div><div><div class="li-name">${esc(p.name)}</div><div class="li-sub">Qty: ${l.qty}</div></div></div>`; }).join("") : `<p class="muted">Your cart is empty.</p>`;
+  $("#summaryItems").innerHTML = cart.length? cart.map(l=>{ const p=bySlug(l.slug); const v=lineVariant(l); return `<div class="os-item"><div class="th"><img src="${cld(lineHero(l),200)}" alt="${esc(p.name)}"></div><div><div class="li-name">${esc(p.name)}</div><div class="li-sub">${v?esc(v.name)+" · ":""}Qty: ${l.qty}</div></div></div>`; }).join("") : `<p class="muted">Your cart is empty.</p>`;
   $("#sumSubtotal").textContent=money(t.sub); $("#sumDiscount").textContent="− "+money(t.disc); $("#sumShipping").textContent=t.ship?money(t.ship):"₹0"; $("#sumTotal").textContent=money(t.total);
   $$("[data-total-inline]").forEach(e=>e.textContent=money(t.total));
   refreshPlaceBtn();
@@ -1152,7 +1169,7 @@ function notifyOwner(o){
     const fields={
       name:o.name, email:o.email||"", phone:o.phone,
       address:[o.house,o.street,o.landmark].filter(Boolean).join(", "),
-      order_id:o.id, items:o.items.map(i=>i.name+" x"+i.qty).join("; "),
+      order_id:o.id, items:o.items.map(i=>i.name+(i.variant?" ("+i.variant+")":"")+" x"+i.qty).join("; "),
       total:"Rs."+o.total, payment:"Cash on Delivery", status:o.order_status,
       pincode:o.pincode, city:o.city, state:o.state, created_at:o.created_at
     };
@@ -1176,7 +1193,7 @@ function placeOrder(){
     house:$("#f-house").value.trim(), street:$("#f-street").value.trim(), landmark:$("#f-landmark").value.trim(),
     pincode:$("#f-pincode").value.trim(), city:$("#f-city").value.trim(), state:$("#f-state").value,
     addressType:$("#f-type").value,
-    items: cart.map(l=>{ const p=bySlug(l.slug); return {slug:p.slug,name:p.name,qty:l.qty,price:p.price,mrp:p.mrp}; }),
+    items: cart.map(l=>{ const p=bySlug(l.slug); const v=lineVariant(l); return {slug:p.slug,name:p.name,variant:v?v.name:"",qty:l.qty,price:linePrice(l),mrp:lineMrp(l)}; }),
     subtotal:t.sub, discount:t.disc, shipping:t.ship, total:t.total,
     payment_method:"COD", payment_status:"Pending", order_status:"New Order", created_at:new Date().toISOString() };
   orders.unshift(o); save("bb2_orders",orders);
@@ -1187,7 +1204,7 @@ function placeOrder(){
 function showConfirm(o){
   const first=o.items[0]||{};
   $("#confirmId").textContent=o.id;
-  $("#confirmProduct").textContent = o.items.length>1 ? `${first.name} + ${o.items.length-1} more` : (first.name||"—");
+  $("#confirmProduct").textContent = o.items.length>1 ? `${first.name} + ${o.items.length-1} more` : (first.name||"—") + (first.variant?` (${first.variant})`:"");
   $("#confirmQty").textContent=o.items.reduce((a,x)=>a+x.qty,0);
   $("#confirmTotal").textContent=money(o.total);
   location.hash="#/confirm"; renderAdmin();
@@ -1210,17 +1227,25 @@ function renderAdmin(){
   $("#statRevenue").textContent=money(orders.reduce((a,o)=>a+Number(o.total||0),0));
   $("#statCallPending").textContent=orders.filter(o=>o.order_status==="New Order"||o.order_status==="Call Pending").length;
   $("#statDelivered").textContent=orders.filter(o=>o.order_status==="Delivered").length;
-  const pb=$("#adminProducts"); if(pb) pb.innerHTML=products.map(p=>`<tr><td><b>${esc(p.name)}</b></td>
-    <td><input data-ap="${p.slug}" data-f="mrp" type="number" value="${p.mrp}" style="width:90px;padding:6px;border-radius:8px;border:1px solid var(--line-2)"></td>
-    <td><input data-ap="${p.slug}" data-f="price" type="number" value="${p.price}" style="width:90px;padding:6px;border-radius:8px;border:1px solid var(--line-2)"></td>
-    <td><select data-ap="${p.slug}" data-f="visible"><option value="1"${p.visible?" selected":""}>Yes</option><option value="0"${!p.visible?" selected":""}>No</option></select></td></tr>`).join("");
+  const pb=$("#adminProducts");
+  if(pb) pb.innerHTML=products.map(p=>{
+    const vis=`<select data-ap="${p.slug}" data-f="visible"><option value="1"${p.visible?" selected":""}>Yes</option><option value="0"${!p.visible?" selected":""}>No</option></select>`;
+    if(hasVariants(p)) return p.variants.map(v=>`<tr><td><b>${esc(p.name)}</b><br><small class="muted">${esc(v.name)}</small></td>
+      <td><input data-ap="${p.slug}" data-v="${v.id}" data-f="mrp" type="number" value="${v.mrp}" style="width:90px;padding:6px;border-radius:8px;border:1px solid var(--line-2)"></td>
+      <td><input data-ap="${p.slug}" data-v="${v.id}" data-f="price" type="number" value="${v.price}" style="width:90px;padding:6px;border-radius:8px;border:1px solid var(--line-2)"></td>
+      <td>${vis}</td></tr>`).join("");
+    return `<tr><td><b>${esc(p.name)}</b></td>
+      <td><input data-ap="${p.slug}" data-f="mrp" type="number" value="${p.mrp}" style="width:90px;padding:6px;border-radius:8px;border:1px solid var(--line-2)"></td>
+      <td><input data-ap="${p.slug}" data-f="price" type="number" value="${p.price}" style="width:90px;padding:6px;border-radius:8px;border:1px solid var(--line-2)"></td>
+      <td>${vis}</td></tr>`;
+  }).join("");
   const body=$("#ordersBody");
   if(!orders.length){ body.innerHTML=`<tr><td colspan="8" class="muted" style="padding:20px">No orders yet. Place a demo order to see it here.</td></tr>`; return; }
   body.innerHTML=orders.map(o=>{ const ph=o.phone.replace(/^\+91/,""); const wa="https://wa.me/91"+ph+"?text="+encodeURIComponent(`Hi ${o.name}, this is BUBBLO. We are confirming your COD order ${o.id}.`); return `<tr>
     <td><b>${esc(o.id)}</b></td><td>${esc(o.name)}</td><td>+91 ${ph.slice(0,5)} ${ph.slice(5)}</td>
     <td>${esc(o.email||"—")}</td>
     <td>${esc(o.house)}, ${esc(o.city)}, ${esc(o.state)} - ${esc(o.pincode)}</td>
-    <td>${esc((o.items[0]||{}).name||"—")}${o.items.length>1?` +${o.items.length-1}`:""}</td>
+    <td>${esc((o.items[0]||{}).name||"—")}${(o.items[0]||{}).variant?` (${esc(o.items[0].variant)})`:""}${o.items.length>1?` +${o.items.length-1}`:""}</td>
     <td>${o.items.reduce((a,x)=>a+x.qty,0)}</td>
     <td>${money(o.total)}</td>
     <td><span class="chip" style="background:${o.payment_status==="Paid"?"#eafaf1":"#fff8e6"};color:${o.payment_status==="Paid"?"#136b44":"#8a6100"}">${esc(o.payment_status)}</span></td>
@@ -1299,14 +1324,15 @@ function updateBuybar(){
 
 /* ---------- events ---------- */
 document.addEventListener("click",e=>{
-  const t=e.target.closest("[data-buy],[data-add],[data-quick],[data-g],[data-cq],[data-pq],[data-order],[data-back],[data-close-menu],[data-close-cart],#cartOpen,#drawerClose,#menuOpen,#menuClose,#qvClose,#viewerClose,#openGift,#giftStage,#trackFromConfirm,#aSave,#barBuy");
+  const t=e.target.closest("[data-buy],[data-add],[data-quick],[data-var],[data-g],[data-cq],[data-pq],[data-order],[data-back],[data-close-menu],[data-close-cart],#cartOpen,#drawerClose,#menuOpen,#menuClose,#qvClose,#viewerClose,#openGift,#giftStage,#trackFromConfirm,#aSave,#barBuy");
   if(!t) return; const el=t;
   if(el.dataset.buy){ addToCart(el.dataset.buy, currentQty()); location.hash="#/checkout"; closeQV(); }
   else if(el.dataset.add){ addToCart(el.dataset.add, currentQty()); openDrawer(); closeQV(); }
   else if(el.id==="barBuy"){ if(current){ addToCart(current,1); location.hash="#/checkout"; } }
   else if(el.dataset.quick){ openQuick(el.dataset.quick); }
   else if(el.dataset.g!==undefined&&el.dataset.g!==""){ }
-  else if(el.dataset.cq){ const l=cart.find(x=>x.slug===el.dataset.cq); setQty(el.dataset.cq,(l?l.qty:0)+Number(el.dataset.d)); }
+  else if(el.dataset.var){ const parts=el.dataset.var.split(":"); selVar[parts[0]]=parts[1]; save("bb2_variants",selVar); if($("#qv")&&$("#qv").classList.contains("open")) openQuick(parts[0]); else renderProduct(parts[0]); }
+  else if(el.dataset.cq){ const l=cart.find(x=>x.slug===el.dataset.cq&&(x.variant||"")===(el.dataset.v||"")); setQty(el.dataset.cq, el.dataset.v||"", (l?l.qty:0)+Number(el.dataset.d)); }
   else if(el.dataset.pq){ const s=$("#pqty")||$("#qqty"); if(s) s.textContent=clamp(Number(s.textContent)+Number(el.dataset.pq),1,10); }
   else if(el.hasAttribute("data-back")){ history.length>1?history.back():(location.hash="#/"); }
   else if(el.hasAttribute("data-close-menu")){ closeMenu(); }
@@ -1372,7 +1398,7 @@ $("#trackForm").addEventListener("submit",e=>{
 });
 document.addEventListener("change",e=>{
   if(e.target.matches("[data-order]")){ const o=orders.find(x=>x.id===e.target.dataset.order); if(!o) return; o.order_status=e.target.value; if(o.order_status==="Delivered") o.payment_status="Paid"; save("bb2_orders",orders); renderAdmin(); }
-  if(e.target.matches("[data-ap]")){ const p=bySlug(e.target.dataset.ap); if(!p) return; const f=e.target.dataset.f; if(f==="visible") p.visible=e.target.value==="1"; else p[f]=Math.max(1,Number(e.target.value)||p[f]); if(p.price>p.mrp) p.mrp=p.price; save("bb2_products",products); renderCampaign(); renderProducts(); renderCompare(); }
+  if(e.target.matches("[data-ap]")){ const p=bySlug(e.target.dataset.ap); if(!p) return; const f=e.target.dataset.f, vid=e.target.dataset.v; if(f==="visible"){ p.visible=e.target.value==="1"; } else if(vid){ const v=p.variants&&p.variants.find(x=>x.id===vid); if(v){ v[f]=Math.max(1,Number(e.target.value)||v[f]); if(v.price>v.mrp) v.mrp=v.price; } } else { p[f]=Math.max(1,Number(e.target.value)||p[f]); if(p.price>p.mrp) p.mrp=p.price; } save("bb2_products",products); renderCampaign(); renderProducts(); renderCompare(); renderCheckoutSummary(); updateCartUI(); }
 });
 window.addEventListener("scroll",()=>{ $("#header").classList.toggle("scrolled",window.scrollY>10); updateBuybar(); },{passive:true});
 
@@ -1380,9 +1406,9 @@ window.addEventListener("scroll",()=>{ $("#header").classList.toggle("scrolled",
 function boot(){
   $("#year").textContent=new Date().getFullYear();
   buildStates();
-  renderIcons(); renderCampaign(); renderWho(); renderProducts(); renderCompare(); renderFaq(); renderContact();
+  ensureVariants(); renderIcons(); renderCampaign(); renderWho(); renderProducts(); renderCompare(); renderFaq(); renderContact();
   updateCartUI(); renderAdmin(); fillAdminSettings(); renderCheckoutSummary();
-  spawnBubbles($("#heroBubbles"),12); spawnBubbles($("#campBubbles"),10); spawnBubbles($("#bandBubbles"),8); spawnBubbles($("#band2Bubbles"),8);
+  spawnBubbles($("#bandBubbles"),8); spawnBubbles($("#band2Bubbles"),8);
   initReveal(); route();
 }
 boot();
